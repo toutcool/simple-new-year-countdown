@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="new-year-count-down.css">
+
+</head>
+<body>
+  <div class="bg-img">
+    <div class="container">
+      <p> <span id="nextYear"></span></br> is coming in </p>
+      <div class="countdown">
+        <div class="time">
+          <span id="days"></span> :</br>
+          <span class="textime">Days</span>
+        </div>
+
+        <div class="time">
+          <span id="hours"></span> :</br>
+          <span class="textime">Hours</span>
+        </div>
+
+        <div class="time">
+          <span id="minutes"></span> :</br>
+          <span class="textime">Minutes</span>
+        </div>
+
+        <div class="time">
+        <span id="seconds"></span></br>
+        <span class="textime">Seconds</span>
+      </div>
+    </div>
+  </div><!--Container-->
+
+  <script>
+    // Return 2020
+    const currentYear = new Date().getFullYear();
+    const nextYear = currentYear + 1;
+
+    // Set background year
+    document.getElementById("nextYear").innerHTML = nextYear 
+
+    // Return Fri Jan 01 2021 00:00:00 GMT+0200
+    const newYearTime = new Date(`January 01 ${currentYear + 1} 00:00:00`);
+
+    function updateCountdown() {
+    //Thu Apr 30 2020 20:51:07 GMT+0300 
+    const currentTime = new Date();
+
+    //21182881242
+    const diff = newYearTime - currentTime;
+
+    //transfor the diff to days , hours etc 
+    const d = Math.floor(diff / 1000 / 60 / 60 / 24);
+    const h = Math.floor(diff / 1000 / 60 / 60) % 24;
+    const m = Math.floor(diff / 1000 / 60) % 60;
+    const s = Math.floor(diff / 1000) % 60;
+
+    const days = document.getElementById('days');
+    const hours = document.getElementById('hours');
+    const minutes = document.getElementById('minutes');
+    const seconds = document.getElementById('seconds');
+    const countdown = document.getElementById('countdown');
+    const year = document.getElementById('year');
+    const loading = document.getElementById('loading');
+
+    // Add values to DOM
+    days.innerHTML = d;
+    hours.innerHTML = h < 10 ? '0' + h : h;
+    minutes.innerHTML = m < 10 ? '0' + m : m;
+    seconds.innerHTML = s < 10 ? '0' + s : s;
+
+    }
+
+
+    setInterval(updateCountdown, 1000);
+
+
+
+
+</script>
+
+</div>
+</body>
+</html>
