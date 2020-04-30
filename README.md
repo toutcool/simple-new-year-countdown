@@ -1,0 +1,3 @@
+# simple-new-year-countdown
+
+My countdown project following one of the 20 projects of <a href="https://www.udemy.com/course/web-projects-with-vanilla-javascript/"> this udemy course</a>
